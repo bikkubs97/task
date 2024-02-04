@@ -4,10 +4,10 @@ import { payloadCloud } from '@payloadcms/plugin-cloud'
 import { mongooseAdapter } from '@payloadcms/db-mongodb' // database-adapter-import
 import { webpackBundler } from '@payloadcms/bundler-webpack' // bundler-import
 import {lexicalEditor} from '@payloadcms/richtext-lexical'
-import { slateEditor } from '@payloadcms/richtext-slate' // editor-import
 import { buildConfig } from 'payload/config'
 
 import Users from './collections/Users'
+import Posts from './collections/Posts'
 
 export default buildConfig({
   admin: {
@@ -15,7 +15,7 @@ export default buildConfig({
     bundler: webpackBundler(), // bundler-config
   },
   editor: lexicalEditor({}), // editor-config
-  collections: [Users],
+  collections: [Users, Posts],
   typescript: {
     outputFile: path.resolve(__dirname, 'payload-types.ts'),
   },
